@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description:
     "Free 2026 US paycheck and take-home pay calculator. Instant calculations using official IRS Publication 15-T and state withholding formulas.",
   metadataBase: new URL(NEXT_PUBLIC_SITE_URL),
+  verification: {
+    google: "j6FiUkxn0hFb5pOqAs0yJQDDTA4JAMxCHQzVV8qyHEI",
+  },
 };
 
 export default function RootLayout({
