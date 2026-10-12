@@ -1,0 +1,56 @@
+{
+  "stateCode": "WI",
+  "stateName": "Wisconsin",
+  "taxYear": 2026,
+  "lastVerified": "2026-10-11",
+  "source": "Wisconsin Department of Revenue Publication W-166 (January 2026), pages 25-27, 'Alternate Method of Withholding Wisconsin Income Tax'",
+  "officialFormName": "Form WT-4 / Pub W-166",
+  "exemptionAmount": 400,
+  "defaultExemptions": 1,
+  "preTaxRules": {
+    "reducesFederal": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    },
+    "reducesState": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    },
+    "status": {
+      "retirement401k": "UNVERIFIED (ASSUMPTION, not confirmed by W-166)",
+      "healthInsurance": "UNVERIFIED (ASSUMPTION, not confirmed by W-166)",
+      "hsa": "VERIFIED (Pub W-166 Section 3.M: Wisconsin follows federal provisions relating to HSAs)"
+    }
+  },
+  "hasLocalTax": false,
+  "statePayrollTaxes": [],
+  "alternateMethod": {
+    "deduction": {
+      "single": {
+        "baseDeduction": 6702,
+        "floorIncome": 17780,
+        "ceilingIncome": 73630,
+        "phaseoutRate": 0.12
+      },
+      "married": {
+        "baseDeduction": 9461,
+        "floorIncome": 25727,
+        "ceilingIncome": 73032,
+        "phaseoutRate": 0.20
+      }
+    },
+    "exemptionAllowance": 400,
+    "annualNetWageBrackets": [
+      { "rate": 0.0354, "minIncome": 0, "maxIncome": 12760, "baseTax": 0 },
+      { "rate": 0.0465, "minIncome": 12760, "maxIncome": 25520, "baseTax": 451.70 },
+      { "rate": 0.0530, "minIncome": 25520, "maxIncome": 280950, "baseTax": 1045.04 },
+      { "rate": 0.0765, "minIncome": 280950, "maxIncome": null, "baseTax": 14582.83 }
+    ]
+  },
+  "notes": [
+    "Implemented exactly per Wisconsin Publication W-166 (January 2026), pages 25-27.",
+    "Wisconsin remains verified=false until final approval."
+  ]
+}

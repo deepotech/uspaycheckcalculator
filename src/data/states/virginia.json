@@ -1,0 +1,40 @@
+{
+  "stateCode": "VA",
+  "stateName": "Virginia",
+  "taxYear": 2026,
+  "lastVerified": "2026-10-11",
+  "source": "PARAPHRASE: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 5, 11, 21-22",
+  "officialFormName": "Form VA-4",
+  "standardDeduction": 8750,
+  "standardDeductionSunsetNote": "The standard deduction increase to $8,750 ($17,500 on annual returns) is scheduled to sunset after taxable year 2026 and revert to $3,000 / $6,000 under current law (guide pages 5 and 21).",
+  "personalExemptionAmount": 930,
+  "ageBlindExemptionAmount": 800,
+  "defaultPersonalExemptions": 1,
+  "defaultAgeBlindExemptions": 0,
+  "preTaxRules": {
+    "reducesFederal": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    },
+    "reducesState": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    }
+  },
+  "preTaxNote": "PARAPHRASE/ASSUMPTION: Guide page 11 states Virginia conforms to the federal definition of income subject to withholding; 401(k) and Section 125 are modeled as reducing Virginia wages under this conforming provision.",
+  "hasLocalTax": false,
+  "statePayrollTaxes": [],
+  "brackets": [
+    { "rate": 0.02, "minIncome": 0, "maxIncome": 3000, "cumulativeBase": 0 },
+    { "rate": 0.03, "minIncome": 3000, "maxIncome": 5000, "cumulativeBase": 60 },
+    { "rate": 0.05, "minIncome": 5000, "maxIncome": 17000, "cumulativeBase": 120 },
+    { "rate": 0.0575, "minIncome": 17000, "maxIncome": null, "cumulativeBase": 720 }
+  ],
+  "notes": [
+    "PARAPHRASE: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 21: T = G x P - [$8,750 + (E1 x $930) + (E2 x $800)]; floor T at 0. Standard deduction in withholding formula is flat $8,750 for all filing statuses (married filers claim E1=2 for self and spouse).",
+    "Rounding rule (guide page 22): Round annual tax W to nearest whole dollar, then divide by pay periods P.",
+    "No local earned income tax in Virginia."
+  ]
+}

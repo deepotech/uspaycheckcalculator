@@ -1,0 +1,57 @@
+{
+  "stateCode": "MN",
+  "stateName": "Minnesota",
+  "taxYear": 2026,
+  "lastVerified": "TODO: No official MN DOR document has been supplied and verified",
+  "source": "UNVERIFIED: https://www.revenue.state.mn.us/withholding-tax (brackets, allowance amount, and Paid Leave rate not confirmed against a primary document supplied by user)",
+  "officialFormName": "Form W-4MN",
+  "allowanceAmount": 5300,
+  "defaultAllowances": 1,
+  "preTaxRules": {
+    "reducesFederal": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    },
+    "reducesState": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    }
+  },
+  "hasLocalTax": false,
+  "statePayrollTaxes": [
+    {
+      "name": "MN Paid Leave (Employee Share)",
+      "rate": 0.0044,
+      "maxWage": 184500,
+      "appliesToAllGross": false,
+      "source": "https://mn.gov/deed/paid-leave"
+    }
+  ],
+  "brackets": {
+    "single": [
+      { "rate": 0.0535, "minIncome": 0, "maxIncome": 33310 },
+      { "rate": 0.068, "minIncome": 33310, "maxIncome": 109430 },
+      { "rate": 0.0785, "minIncome": 109430, "maxIncome": 203150 },
+      { "rate": 0.0985, "minIncome": 203150, "maxIncome": null }
+    ],
+    "married_joint": [
+      { "rate": 0.0535, "minIncome": 0, "maxIncome": 48700 },
+      { "rate": 0.068, "minIncome": 48700, "maxIncome": 193490 },
+      { "rate": 0.0785, "minIncome": 193490, "maxIncome": 337940 },
+      { "rate": 0.0985, "minIncome": 337940, "maxIncome": null }
+    ],
+    "head_of_household": [
+      { "rate": 0.0535, "minIncome": 0, "maxIncome": 41010 },
+      { "rate": 0.068, "minIncome": 41010, "maxIncome": 164800 },
+      { "rate": 0.0785, "minIncome": 164800, "maxIncome": 270070 },
+      { "rate": 0.0985, "minIncome": 270070, "maxIncome": null }
+    ]
+  },
+  "notes": [
+    "UNVERIFIED: Minnesota withholding uses Form W-4MN allowances. The $5,300 allowance amount for 2026 has NOT been confirmed against an official MN DOR document supplied by the user.",
+    "UNVERIFIED: Minnesota Paid Leave employee deduction rate of 0.44% up to the $184,500 wage cap has NOT been confirmed against an official document supplied by the user.",
+    "No local income taxes in Minnesota."
+  ]
+}

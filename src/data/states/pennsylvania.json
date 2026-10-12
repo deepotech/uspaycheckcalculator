@@ -1,0 +1,45 @@
+{
+  "stateCode": "PA",
+  "stateName": "Pennsylvania",
+  "taxYear": 2026,
+  "lastVerified": "2026-10-11",
+  "source": "PARAPHRASE: PA REV-415 (SU) 01-23, printed page 11 (Calculation of Withholding) and page 6 (Taxable Benefits)",
+  "officialFormName": "Form REV-415 / PA PIT",
+  "flatTaxRate": 0.0307,
+  "standardDeduction": {
+    "single": 0,
+    "married_joint": 0,
+    "married_separate": 0,
+    "head_of_household": 0
+  },
+  "preTaxRules": {
+    "reducesFederal": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    },
+    "reducesState": {
+      "retirement401k": false,
+      "healthInsurance": false,
+      "hsa": false
+    }
+  },
+  "hasLocalTax": true,
+  "defaultLocalRate": 0.0,
+  "localTaxNote": "PARAPHRASE: REV-415 directs Act 32 / local EIT questions to DCED (Quick Reference Guide for Payroll Providers, 'Act 32', printed page 22); rates other than Philadelphia are not verified. Optional user input default is 0%. Philadelphia wage tax rate: residents 3.735% effective July 1, 2026; nonresidents 3.425% (phila.gov rate table).",
+  "statePayrollTaxes": [
+    {
+      "name": "PA Unemployment Compensation (Employee)",
+      "rate": 0.0007,
+      "maxWage": null,
+      "appliesToAllGross": true,
+      "source": "PA Dept of Labor & Industry Employee Withholding page (2023 and thereafter)"
+    }
+  ],
+  "notes": [
+    "PARAPHRASE: PA REV-415 (SU) 01-23, printed page 11: PA PIT is a flat 3.07% on gross compensation, with no standard deduction or personal exemptions.",
+    "PARAPHRASE: PA REV-415 (SU) 01-23, printed page 6: 401(k) salary-reduction contributions are included in PA gross taxable wages.",
+    "UNVERIFIED: REV-415 covers employer payments for medical/dental/vision welfare plans, but does not explicitly address employee Section 125 salary-reduction premiums. Pending official primary sourcing, employee health premiums and HSA contributions are treated as taxable for PA by default.",
+    "Employee Unemployment Compensation (UC) is 0.07% on ALL gross wages without cap (PA Dept of Labor & Industry). Rounding rule: compute to 3 decimals, drop excess, round to nearest cent."
+  ]
+}

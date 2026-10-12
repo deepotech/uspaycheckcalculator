@@ -1,0 +1,104 @@
+{
+  "taxYear": 2026,
+  "lastVerified": "2026-10-12",
+  "source": "PARAPHRASE: IRS Pub 15-T (2026), Section 1, Worksheet 1A on printed page 10 and Percentage Method Tables on printed page 12",
+  "socialSecurity": {
+    "rate": 0.062,
+    "wageBase": 184500,
+    "source": "https://www.ssa.gov/oact/cola/cbb.html",
+    "lastVerified": "2026-10-12"
+  },
+  "medicare": {
+    "rate": 0.0145,
+    "additionalRate": 0.009,
+    "additionalThresholds": {
+      "single": 200000,
+      "married_joint": 250000,
+      "married_separate": 125000,
+      "head_of_household": 200000
+    },
+    "source": "https://www.irs.gov/taxtopics/tc560"
+  },
+  "worksheet1A": {
+    "line1gAdjustment": {
+      "standard": {
+        "single": 8600,
+        "married_joint": 12900,
+        "head_of_household": 11600,
+        "married_separate": 8600
+      },
+      "step2Checked": {
+        "single": 0,
+        "married_joint": 0,
+        "head_of_household": 0,
+        "married_separate": 0
+      }
+    }
+  },
+  "percentageMethodTables": {
+    "standard": {
+      "single": [
+        { "rate": 0.0, "minIncome": 0, "maxIncome": 7500 },
+        { "rate": 0.10, "minIncome": 7500, "maxIncome": 19900 },
+        { "rate": 0.12, "minIncome": 19900, "maxIncome": 57900 },
+        { "rate": 0.22, "minIncome": 57900, "maxIncome": 113200 },
+        { "rate": 0.24, "minIncome": 113200, "maxIncome": 209275 },
+        { "rate": 0.32, "minIncome": 209275, "maxIncome": 263725 },
+        { "rate": 0.35, "minIncome": 263725, "maxIncome": 648100 },
+        { "rate": 0.37, "minIncome": 648100, "maxIncome": null }
+      ],
+      "married_joint": [
+        { "rate": 0.0, "minIncome": 0, "maxIncome": 19300 },
+        { "rate": 0.10, "minIncome": 19300, "maxIncome": 44100 },
+        { "rate": 0.12, "minIncome": 44100, "maxIncome": 120100 },
+        { "rate": 0.22, "minIncome": 120100, "maxIncome": 230700 },
+        { "rate": 0.24, "minIncome": 230700, "maxIncome": 422850 },
+        { "rate": 0.32, "minIncome": 422850, "maxIncome": 531750 },
+        { "rate": 0.35, "minIncome": 531750, "maxIncome": 788000 },
+        { "rate": 0.37, "minIncome": 788000, "maxIncome": null }
+      ],
+      "head_of_household": [
+        { "rate": 0.0, "minIncome": 0, "maxIncome": 12550 },
+        { "rate": 0.10, "minIncome": 12550, "maxIncome": 29150 },
+        { "rate": 0.12, "minIncome": 29150, "maxIncome": 75950 },
+        { "rate": 0.22, "minIncome": 75950, "maxIncome": 131250 },
+        { "rate": 0.24, "minIncome": 131250, "maxIncome": 227325 },
+        { "rate": 0.32, "minIncome": 227325, "maxIncome": 281775 },
+        { "rate": 0.35, "minIncome": 281775, "maxIncome": 666150 },
+        { "rate": 0.37, "minIncome": 666150, "maxIncome": null }
+      ]
+    },
+    "step2Checked": {
+      "single": [
+        { "rate": 0.0, "minIncome": 0, "maxIncome": 8050 },
+        { "rate": 0.10, "minIncome": 8050, "maxIncome": 14250 },
+        { "rate": 0.12, "minIncome": 14250, "maxIncome": 33250 },
+        { "rate": 0.22, "minIncome": 33250, "maxIncome": 60900 },
+        { "rate": 0.24, "minIncome": 60900, "maxIncome": 108938 },
+        { "rate": 0.32, "minIncome": 108938, "maxIncome": 136163 },
+        { "rate": 0.35, "minIncome": 136163, "maxIncome": 328350 },
+        { "rate": 0.37, "minIncome": 328350, "maxIncome": null }
+      ],
+      "married_joint": [
+        { "rate": 0.0, "minIncome": 0, "maxIncome": 16100 },
+        { "rate": 0.10, "minIncome": 16100, "maxIncome": 28500 },
+        { "rate": 0.12, "minIncome": 28500, "maxIncome": 66500 },
+        { "rate": 0.22, "minIncome": 66500, "maxIncome": 121800 },
+        { "rate": 0.24, "minIncome": 121800, "maxIncome": 217875 },
+        { "rate": 0.32, "minIncome": 217875, "maxIncome": 272325 },
+        { "rate": 0.35, "minIncome": 272325, "maxIncome": 656700 },
+        { "rate": 0.37, "minIncome": 656700, "maxIncome": null }
+      ],
+      "head_of_household": [
+        { "rate": 0.0, "minIncome": 0, "maxIncome": 12075 },
+        { "rate": 0.10, "minIncome": 12075, "maxIncome": 20375 },
+        { "rate": 0.12, "minIncome": 20375, "maxIncome": 43775 },
+        { "rate": 0.22, "minIncome": 43775, "maxIncome": 71425 },
+        { "rate": 0.24, "minIncome": 71425, "maxIncome": 119463 },
+        { "rate": 0.32, "minIncome": 119463, "maxIncome": 146688 },
+        { "rate": 0.35, "minIncome": 146688, "maxIncome": 338875 },
+        { "rate": 0.37, "minIncome": 338875, "maxIncome": null }
+      ]
+    }
+  }
+}

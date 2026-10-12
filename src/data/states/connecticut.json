@@ -1,0 +1,46 @@
+{
+  "stateCode": "CT",
+  "stateName": "Connecticut",
+  "taxYear": 2026,
+  "lastVerified": "2026-10-11",
+  "source": "https://portal.ct.gov/drs/withholding/withholding",
+  "officialFormName": "Form CT-W4 / TPG-211",
+  "defaultWithholdingCode": "A",
+  "preTaxRules": {
+    "reducesFederal": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    },
+    "reducesState": {
+      "retirement401k": true,
+      "healthInsurance": true,
+      "hsa": true
+    }
+  },
+  "hasLocalTax": false,
+  "statePayrollTaxes": [
+    {
+      "name": "CT Paid Leave (CT PL)",
+      "rate": 0.005,
+      "maxWage": 184500,
+      "appliesToAllGross": false,
+      "source": "https://ctpaidleave.org"
+    }
+  ],
+  "brackets": [
+    { "rate": 0.02, "minIncome": 0, "maxIncome": 10000 },
+    { "rate": 0.045, "minIncome": 10000, "maxIncome": 50000 },
+    { "rate": 0.055, "minIncome": 50000, "maxIncome": 100000 },
+    { "rate": 0.06, "minIncome": 100000, "maxIncome": 200000 },
+    { "rate": 0.065, "minIncome": 200000, "maxIncome": 250000 },
+    { "rate": 0.069, "minIncome": 250000, "maxIncome": 500000 },
+    { "rate": 0.0699, "minIncome": 500000, "maxIncome": null }
+  ],
+  "unverifiedOrTodo": [
+    "TODO: Connecticut is DISABLED until exact TPG-211 Table A (Exemptions), Table C (Phase-Out), and Table D (Recapture) text are verified line-by-line from official DRS publication."
+  ],
+  "notes": [
+    "Connecticut page is currently disabled under the verification publish gate."
+  ]
+}
