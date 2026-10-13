@@ -9,14 +9,14 @@ import { CONTACT_EMAIL, NEXT_PUBLIC_SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "2026 US Paycheck & Take-Home Pay Calculator | Free Tax Estimator",
   description:
-    "Free 2026 US paycheck and take-home pay calculator. Accurate withholding estimates based on official IRS Publication 15-T percentage method tables and updated Social Security wage base.",
+    "Estimate your take-home pay using the IRS Publication 15-T percentage method for 2026. Free federal calculator with Virginia and Pennsylvania state tax.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "2026 US Paycheck & Take-Home Pay Calculator | Free Tax Estimator",
     description:
-      "Free 2026 US paycheck and take-home pay calculator. Accurate withholding estimates based on official IRS Publication 15-T percentage method tables and updated Social Security wage base.",
+      "Estimate your take-home pay using the IRS Publication 15-T percentage method for 2026. Free federal calculator with Virginia and Pennsylvania state tax.",
     url: "/",
     type: "website",
   },

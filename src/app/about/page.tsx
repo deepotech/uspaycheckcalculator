@@ -29,7 +29,7 @@ export default function AboutPage() {
           About US Paycheck Calculator
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-          An independent payroll withholding estimation tool providing clear, verified take-home pay calculations based directly on primary government publications.
+          An independent payroll withholding estimation tool providing clear, verified take-home pay estimates based directly on primary government publications.
         </p>
       </div>
 
@@ -119,7 +119,7 @@ export default function AboutPage() {
               <strong>State Coverage:</strong> Only Virginia and Pennsylvania state taxes are currently modeled based on specific employer withholding guides.
             </li>
             <li>
-              <strong>Other States:</strong> When other states are selected, the calculator models federal income tax and FICA taxes only. Unverified state formulas are kept behind an internal quality gate and are not published until confirmed against primary government publications.
+              <strong>Other States:</strong> Other states are not available yet.
             </li>
             <li>
               <strong>Employer Payroll Variance:</strong> Actual paycheck net amounts may differ due to payroll software rounding intervals, supplemental wage rules, mid-year wage accumulation caps, non-standard fringe benefits, or employer-specific pre-tax plans.

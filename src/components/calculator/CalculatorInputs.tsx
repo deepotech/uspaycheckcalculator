@@ -168,7 +168,7 @@ export const CalculatorInputs: React.FC<CalculatorInputsProps> = ({
             onChange={(e) => setStateCode(e.target.value)}
             className="w-full px-3 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
           >
-            <option value="FEDERAL_ONLY">Federal Taxes Only (No State Tax)</option>
+            <option value="FEDERAL_ONLY">Federal only (choose a state for state tax)</option>
             {statesMetaData
               .filter((st) => st.verified && st.isActive)
               .map((st) => (
