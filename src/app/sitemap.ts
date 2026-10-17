@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import statesMetaData from "@/data/states-meta.json";
+import { getAllSalaryPages } from "@/lib/salaryPages";
 import { NEXT_PUBLIC_SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -50,5 +51,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     }));
 
-  return [...staticRoutes, ...verifiedActiveStateRoutes];
+  // Salary after-tax pages — only for verified && isActive states (enforced inside getAllSalaryPages)
+  const salaryPageRoutes: MetadataRoute.Sitemap = getAllSalaryPages().map((p) => ({
+    url: `${baseUrl}/${p.slug}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...verifiedActiveStateRoutes, ...salaryPageRoutes];
 }

@@ -174,8 +174,11 @@ export function calculateMultiPeriodBreakdown(inputs: PaycheckCalculationInputs)
     : inputs.grossAmount;
 
   // ── Annual Pre-Tax Deductions ─────────────────────────────────────────────
-  // These are linear with gross, so monthly × 12 is exact (no rounding drift).
-  const annualPreTaxK401    = Math.round(results["monthly"].preTaxDeductions.k401 * 12 * 100) / 100;
+  // 401(k) percentage is computed directly on annual gross to avoid per-period rounding drift.
+  const annualPreTaxK401 =
+    inputs.preTax.k401Percent && inputs.preTax.k401Percent > 0
+      ? Math.round(annualGross * (inputs.preTax.k401Percent / 100) * 100) / 100
+      : Math.round(results["monthly"].preTaxDeductions.k401 * 12 * 100) / 100;
   const annualPreTaxHealth  = Math.round(results["monthly"].preTaxDeductions.healthInsurance * 12 * 100) / 100;
   const annualPreTaxHsa     = Math.round(results["monthly"].preTaxDeductions.hsa * 12 * 100) / 100;
   const annualPreTaxOther   = Math.round(results["monthly"].preTaxDeductions.other * 12 * 100) / 100;
@@ -231,9 +234,9 @@ export function calculateMultiPeriodBreakdown(inputs: PaycheckCalculationInputs)
       total: annualPreTaxTotal,
     },
     taxableWages: {
-      federal: Math.round(results["monthly"].taxableWages.federal * 12 * 100) / 100,
-      fica:    Math.round(results["monthly"].taxableWages.fica    * 12 * 100) / 100,
-      state:   Math.round(results["monthly"].taxableWages.state   * 12 * 100) / 100,
+      federal: Math.round(Math.max(0, annualGross - annualFedPreTax) * 100) / 100,
+      fica:    Math.round(Math.max(0, annualGross - annualFicaPreTax) * 100) / 100,
+      state:   Math.round(Math.max(0, annualGross - annualStatePreTax) * 100) / 100,
     },
     taxes: {
       federalIncomeTax:    annualFederal,

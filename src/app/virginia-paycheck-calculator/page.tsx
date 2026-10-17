@@ -9,6 +9,7 @@ import { formatCurrency, formatPercent } from "@/lib/tax/formatters";
 import virginiaData from "@/data/states/virginia.json";
 import statesMetaData from "@/data/states-meta.json";
 import { CONTACT_EMAIL } from "@/lib/site";
+import { getSalaryPagesForState } from "@/lib/salaryPages";
 
 export const metadata: Metadata = {
   title: "Virginia Paycheck Calculator 2026 | VA Take-Home Pay & Withholding",
@@ -257,6 +258,27 @@ export default function VirginiaPaycheckPage() {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Salary Examples — links to salary-after-tax pages */}
+      <section className="bg-white rounded-xl border border-slate-200 p-6 space-y-3">
+        <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+          Virginia Salary After Tax Examples
+        </h2>
+        <p className="text-xs text-slate-500">
+          Pre-computed take-home pay for common salaries in Virginia (single filer, standard W-4, tax year 2026):
+        </p>
+        <div className="flex flex-wrap gap-2 pt-1">
+          {getSalaryPagesForState("VA").map((p) => (
+            <Link
+              key={p.slug}
+              href={`/${p.slug}`}
+              className="px-3 py-1.5 rounded-md border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-700 transition-colors"
+            >
+              ${p.salary.toLocaleString("en-US")} salary after taxes in Virginia
+            </Link>
           ))}
         </div>
       </section>

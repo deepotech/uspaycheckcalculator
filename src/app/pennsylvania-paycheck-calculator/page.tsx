@@ -9,6 +9,7 @@ import { formatCurrency, formatPercent } from "@/lib/tax/formatters";
 import pennsylvaniaData from "@/data/states/pennsylvania.json";
 import statesMetaData from "@/data/states-meta.json";
 import { CONTACT_EMAIL } from "@/lib/site";
+import { getSalaryPagesForState } from "@/lib/salaryPages";
 
 export const metadata: Metadata = {
   title: "Pennsylvania Paycheck Calculator 2026 | PA Take-Home Pay & UC Tax",
@@ -227,6 +228,27 @@ export default function PennsylvaniaPaycheckPage() {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Salary Examples — links to salary-after-tax pages */}
+      <section className="bg-white rounded-xl border border-slate-200 p-6 space-y-3">
+        <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+          Pennsylvania Salary After Tax Examples
+        </h2>
+        <p className="text-xs text-slate-500">
+          Pre-computed take-home pay for common salaries in Pennsylvania (single filer, standard W-4, 0% local EIT, tax year 2026):
+        </p>
+        <div className="flex flex-wrap gap-2 pt-1">
+          {getSalaryPagesForState("PA").map((p) => (
+            <Link
+              key={p.slug}
+              href={`/${p.slug}`}
+              className="px-3 py-1.5 rounded-md border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-700 transition-colors"
+            >
+              ${p.salary.toLocaleString("en-US")} salary after taxes in Pennsylvania
+            </Link>
           ))}
         </div>
       </section>
