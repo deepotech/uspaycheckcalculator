@@ -2,13 +2,17 @@ export const SITE_OWNER_NAME = "Dounia El Marradi";
 export const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "dounia.elmarradi@gmail.com";
 export const NEXT_PUBLIC_SITE_URL = (() => {
-  if (process.env.NODE_ENV === "production") {
-    if (!process.env.NEXT_PUBLIC_SITE_URL) {
-      throw new Error("NEXT_PUBLIC_SITE_URL is required in production builds.");
-    }
-    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/+$/, "");
-  }
-  return (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/+$/, "");
+  const url =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : undefined) ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ||
+    (process.env.NODE_ENV === "production"
+      ? "https://uspaycheckcalculator.com"
+      : "http://localhost:3000");
+
+  return url.replace(/\/+$/, "");
 })();
 export const SITE_URL = NEXT_PUBLIC_SITE_URL;
 
