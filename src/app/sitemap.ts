@@ -1,19 +1,25 @@
 import type { MetadataRoute } from "next";
 import statesMetaData from "@/data/states-meta.json";
 import { getAllSalaryPages } from "@/lib/salaryPages";
-import { NEXT_PUBLIC_SITE_URL } from "@/lib/site";
+import { NEXT_PUBLIC_SITE_URL, PAGE_UPDATE_INFO } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = NEXT_PUBLIC_SITE_URL;
-  const lastModified = new Date("2026-10-12");
+  const lastModified = new Date(PAGE_UPDATE_INFO.lastmodDate);
 
-  // Core static routes: homepage and legal pages
+  // Core static routes: homepage, state hub, and legal pages
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}`,
       lastModified,
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/paycheck-calculator-by-state`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,

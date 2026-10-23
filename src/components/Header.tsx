@@ -17,6 +17,9 @@ export const Header: React.FC = () => {
           <Link href="/" className="hover:text-emerald-600 transition">
             Calculator
           </Link>
+          <Link href="/paycheck-calculator-by-state" className="hover:text-emerald-600 transition">
+            By State
+          </Link>
           <Link href="/about" className="hover:text-emerald-600 transition">
             About
           </Link>

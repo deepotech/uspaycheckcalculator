@@ -12,3 +12,9 @@ export const NEXT_PUBLIC_SITE_URL = (() => {
 })();
 export const SITE_URL = NEXT_PUBLIC_SITE_URL;
 
+export const PAGE_UPDATE_INFO = {
+  taxYearLabel: "Tax year 2026",
+  updatedLabel: "Updated October 2026",
+  lastmodDate: "2026-10-23",
+} as const;
+

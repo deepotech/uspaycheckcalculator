@@ -4,7 +4,7 @@ import { PaycheckCalculator } from "@/components/calculator/PaycheckCalculator";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import statesMetaData from "@/data/states-meta.json";
 import Link from "next/link";
-import { CONTACT_EMAIL, NEXT_PUBLIC_SITE_URL } from "@/lib/site";
+import { CONTACT_EMAIL, NEXT_PUBLIC_SITE_URL, PAGE_UPDATE_INFO } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "2026 US Paycheck & Take-Home Pay Calculator | Free Tax Estimator",
@@ -46,6 +46,11 @@ export default function HomePage() {
       />
       {/* Main H1 Hero */}
       <div className="max-w-3xl">
+        <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-2">
+          <span>{PAGE_UPDATE_INFO.taxYearLabel}</span>
+          <span>•</span>
+          <span>{PAGE_UPDATE_INFO.updatedLabel}</span>
+        </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
           2026 US Paycheck &amp; Take-Home Pay Calculator
         </h1>
@@ -63,9 +68,17 @@ export default function HomePage() {
       {/* State Directory / Hub — only verified, active states */}
       {activeStates.length > 0 && (
         <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs mt-10">
-          <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-2">
-            State Paycheck Calculators
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <h2 className="text-xl font-bold text-slate-900 tracking-tight">
+              State Paycheck Calculators
+            </h2>
+            <Link
+              href="/paycheck-calculator-by-state"
+              className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 hover:underline"
+            >
+              Browse All State Calculators →
+            </Link>
+          </div>
           <p className="text-xs text-slate-500 mb-6">
             Access specialized state paycheck calculators with state tax brackets, local payroll rules, and worked examples.
           </p>

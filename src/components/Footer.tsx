@@ -33,6 +33,11 @@ export const Footer: React.FC = () => {
                   Federal Paycheck Calculator
                 </Link>
               </li>
+              <li>
+                <Link href="/paycheck-calculator-by-state" className="hover:text-emerald-600">
+                  Paycheck Calculators by State
+                </Link>
+              </li>
               {activeStates.map((st) => (
                 <li key={st.stateCode}>
                   <Link href={`/${st.slug}`} className="hover:text-emerald-600">

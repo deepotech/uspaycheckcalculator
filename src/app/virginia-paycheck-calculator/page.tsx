@@ -4,11 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PaycheckCalculator } from "@/components/calculator/PaycheckCalculator";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { calculatePaycheck } from "@/lib/tax/calculator";
 import { formatCurrency, formatPercent } from "@/lib/tax/formatters";
 import virginiaData from "@/data/states/virginia.json";
 import statesMetaData from "@/data/states-meta.json";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { CONTACT_EMAIL, PAGE_UPDATE_INFO } from "@/lib/site";
 import { getSalaryPagesForState } from "@/lib/salaryPages";
 
 export const metadata: Metadata = {
@@ -38,6 +39,12 @@ export default function VirginiaPaycheckPage() {
   const otherActiveStates = statesMetaData.filter(
     (s) => s.stateCode !== meta.stateCode && s.verified && s.isActive
   );
+
+  const breadcrumbs = [
+    { name: "Home", href: "/" },
+    { name: "Paycheck Calculators by State", href: "/paycheck-calculator-by-state" },
+    { name: "Virginia" },
+  ];
 
   // Programmatically generate worked examples at $50k, $75k, and $100k
   const exampleSalaries = [50000, 75000, 100000];
@@ -91,24 +98,44 @@ export default function VirginiaPaycheckPage() {
 
   const faqs = [
     {
-      q: "How is Virginia state income tax withheld from wages?",
-      a: "Virginia withholding is calculated by annualizing your gross pay, subtracting the $8,750 standard deduction and your personal exemption allowances ($930 per personal exemption and $800 per age/blind exemption), and applying Virginia's graduated brackets (2%, 3%, 5%, and 5.75%). The annual tax is rounded to the nearest dollar and divided by your pay periods. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 21–22.",
+      q: "What is the difference between gross pay and net pay?",
+      a: "Gross pay is the total compensation earned before any taxes, payroll withholdings, or voluntary deductions are taken out. Net pay (take-home pay) is the remaining amount of compensation received by the employee after all federal, state, and local taxes, mandatory payroll contributions, and elective deductions have been subtracted.",
     },
     {
-      q: "What is the standard deduction in the Virginia withholding formula?",
-      a: "In the employer withholding formula, the standard deduction is a flat $8,750 for every employee regardless of filing status. Married employees claiming their spouse receive the marital benefit through personal exemptions (E1 = 2). Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 21.",
+      q: "What is pay frequency?",
+      a: "Pay frequency refers to the recurring schedule upon which an employer distributes wages to employees, such as weekly, bi-weekly, semi-monthly, or monthly.",
+    },
+    {
+      q: "What is the difference between bi-weekly and semi-monthly pay?",
+      a: "Bi-weekly pay occurs once every two weeks, resulting in 26 paychecks over a calendar year. Semi-monthly pay occurs twice per month (for example, on the 15th and the last day of the month), resulting in 24 paychecks per year.",
+    },
+    {
+      q: "How is Virginia state income tax withheld from wages?",
+      a: "Virginia withholding is calculated by annualizing your gross pay, subtracting the flat $8,750 standard deduction and your personal exemption allowances ($930 per personal exemption and $800 per age 65+ or blind exemption), and applying Virginia's graduated brackets (2%, 3%, 5%, and 5.75%). The annual tax is rounded to the nearest dollar and divided by your pay periods. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 21–22.",
     },
     {
       q: "Is the Virginia standard deduction increase permanent?",
       a: "No. Under current Virginia law, the $8,750 withholding standard deduction ($17,500 on annual joint returns) is scheduled to sunset after taxable year 2026, reverting to $3,000 for single filers and $6,000 for married couples. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 5 and 21.",
     },
     {
-      q: "What are Form VA-4 personal and age/blind exemptions?",
-      a: "Employees file Form VA-4 with their employer. Each personal exemption (E1) reduces annualized taxable wages by $930, and each age 65+ or blindness exemption (E2) reduces annualized wages by $800. Source: Form VA-4 and Employer Withholding Guide, page 21.",
+      q: "How are bonuses and supplemental pay taxed for Virginia withholding?",
+      a: "If a bonus or vacation pay is included with a regular wage payment, it is added to the gross wages for that pay period and withheld using the tables or formula. If a supplemental payment is made separately, the employer computes the tax on regular plus supplemental wages and subtracts the tax computed on regular wages alone; alternatively, if Virginia tax has already been withheld from the employee's regular wages, the employer may use a flat 5.75% rate without exemptions. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 19–20.",
     },
     {
-      q: "Do 401(k) and health insurance deductions reduce Virginia taxable income?",
-      a: "Virginia's employer guide says Virginia generally follows the federal definition of wages subject to withholding but does not list each deduction. We therefore model traditional 401(k) and pre-tax health premiums as reducing Virginia wages. Check your pay stub to confirm. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 11.",
+      q: "How does Virginia tax employees who live in another state?",
+      a: "Virginia has reciprocity agreements with Kentucky, the District of Columbia, Maryland, West Virginia and Pennsylvania. Residents of Kentucky and the District of Columbia are not subject to Virginia withholding on wages if they commute daily to their place of employment in Virginia. Residents of Maryland, West Virginia and Pennsylvania are not subject to Virginia withholding if they maintain a legal domicile in their home state and live in Virginia less than 183 days of the taxable year (or do not live in Virginia at all), their only Virginia source income is wages or salaries, and that income is taxed by their state of residence. A qualifying employee indicates this on Form VA-4 filed with the employer. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 12.",
+    },
+    {
+      q: "What is Form VA-4 and what happens if an employee does not file it?",
+      a: "Form VA-4 is the Virginia Employee's Withholding Exemption Certificate, used by employees to declare personal and age/blind exemptions. If an employee fails to file Form VA-4, the employer is required to withhold Virginia income tax as if the employee had claimed zero exemptions. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 13.",
+    },
+    {
+      q: "Who qualifies for an exemption from Virginia withholding?",
+      a: "An employee may claim complete exemption from Virginia income tax withholding on Form VA-4 (line 3) if they meet one of the qualifying conditions: they incurred no Virginia tax liability last year and expect none this year; their expected Virginia adjusted gross income is below $11,950 (single), $23,900 (married), or $11,950 (married filing separately); they commute daily from Kentucky or DC; or they are legally domiciled in Maryland, Pennsylvania or West Virginia with only Virginia wages taxed by the home state. A new exemption certificate must be filed each year. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 14; Form VA-4 (Rev. 04/26), line 3 instructions.",
+    },
+    {
+      q: "Can an employee request extra Virginia tax withholding?",
+      a: "Yes. An employee may request that an additional dollar amount of Virginia income tax be withheld from each paycheck by entering into an agreement with the employer and specifying the amount on Form VA-4. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 14.",
     },
   ];
 
@@ -127,6 +154,8 @@ export default function VirginiaPaycheckPage() {
 
   return (
     <div className="space-y-8">
+      <Breadcrumbs items={breadcrumbs} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -137,9 +166,11 @@ export default function VirginiaPaycheckPage() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-1">
-          <span>Tax Year 2026</span>
+          <span>{PAGE_UPDATE_INFO.taxYearLabel}</span>
           <span>•</span>
-          <span>Form VA-4 & Employer Guide</span>
+          <span>{PAGE_UPDATE_INFO.updatedLabel}</span>
+          <span>•</span>
+          <span>Form VA-4 &amp; Employer Guide</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
           Virginia Paycheck Calculator 2026
@@ -148,6 +179,68 @@ export default function VirginiaPaycheckPage() {
           Estimate your net take-home pay in the Commonwealth of Virginia. Based on the formula published in Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), personal exemption values, and tax brackets.
         </p>
       </div>
+
+      {/* Quick Facts Box */}
+      <section className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4">
+        <div className="border-b border-slate-200 pb-2">
+          <h2 className="text-base font-bold text-slate-900 tracking-tight">
+            Virginia 2026 Paycheck Quick Facts
+          </h2>
+          <p className="text-xs text-slate-500">
+            Key state and federal withholding values for tax year 2026.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+          <div className="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+            <span className="text-[11px] font-semibold uppercase text-slate-500">State Tax Rate Range</span>
+            <p className="text-sm font-bold text-slate-900">2% to 5.75%</p>
+            <p className="text-slate-600 text-[11px]">
+              Graduated brackets from 2% up to 5.75% on taxable wages over $17,000. Source: Guide page 21.
+            </p>
+          </div>
+
+          <div className="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+            <span className="text-[11px] font-semibold uppercase text-slate-500">Standard Deduction in Formula</span>
+            <p className="text-sm font-bold text-slate-900">$8,750 Flat Deduction</p>
+            <p className="text-slate-600 text-[11px]">
+              Flat $8,750 standard deduction in the withholding formula across all filing statuses. Source: Guide page 21.
+            </p>
+          </div>
+
+          <div className="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+            <span className="text-[11px] font-semibold uppercase text-slate-500">Form VA-4 Exemptions</span>
+            <p className="text-sm font-bold text-slate-900">$930 / $800</p>
+            <p className="text-slate-600 text-[11px]">
+              $930 per personal exemption (E1) and $800 per age 65+ or blind exemption (E2). Source: Guide page 21.
+            </p>
+          </div>
+
+          <div className="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+            <span className="text-[11px] font-semibold uppercase text-slate-500">Statutory Sunset Note</span>
+            <p className="text-sm font-bold text-amber-800">Sunsets After Tax Year 2026</p>
+            <p className="text-slate-600 text-[11px]">
+              The $8,750 withholding standard deduction ($17,500 joint) reverts to $3,000 / $6,000 after 2026 under current law. Source: Guide pages 5 and 21.
+            </p>
+          </div>
+
+          <div className="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+            <span className="text-[11px] font-semibold uppercase text-slate-500">Federal Social Security (2026)</span>
+            <p className="text-sm font-bold text-slate-900">6.2% up to $184,500</p>
+            <p className="text-slate-600 text-[11px]">
+              Social Security tax is 6.2% on wages up to the $184,500 wage base limit. Source: SSA Contribution and Benefit Base.
+            </p>
+          </div>
+
+          <div className="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+            <span className="text-[11px] font-semibold uppercase text-slate-500">Federal Medicare (2026)</span>
+            <p className="text-sm font-bold text-slate-900">1.45% (No Wage Cap)</p>
+            <p className="text-slate-600 text-[11px]">
+              Medicare withholding is 1.45% on all covered wages without an annual dollar cap. Source: SSA Contribution and Benefit Base.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Calculator Widget pre-configured for VA */}
       <PaycheckCalculator initialStateCode="VA" hideStateSelector={true} />
@@ -165,14 +258,62 @@ export default function VirginiaPaycheckPage() {
         <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm font-mono text-slate-800 space-y-1">
           <p className="font-semibold text-slate-900">T = (G × P) - [$8,750 + (E1 × $930) + (E2 × $800)]</p>
           <p className="text-xs font-sans text-slate-500">
-            Where <strong>G</strong> is period gross wage, <strong>P</strong> is number of pay periods per year, <strong>E1</strong> is personal exemptions ($930 each), and <strong>E2</strong> is age 65+/blind exemptions ($800 each). Taxable wage <strong>T</strong> cannot be negative.
+            Where <strong>G</strong> is period gross wage, <strong>P</strong> is number of pay periods per year, <strong>E1</strong> is personal exemptions ($930 each), and <strong>E2</strong> is age 65+/blind exemptions ($800 each). This calculator sets T to zero if the result is negative.
           </p>
         </div>
 
         <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-900 space-y-1">
           <p className="font-semibold">Statutory Sunset Notice on Standard Deduction:</p>
           <p>
-            Under current Virginia law, the increased standard deduction of <strong>$8,750</strong> in the withholding formula ($17,500 for married couples filing jointly) is scheduled to <strong>sunset after taxable year 2026</strong> and revert to $3,000 for single filers and $6,000 for married couples (Guide pages 5 and 21).
+            Under current Virginia law, the increased standard deduction of <strong>$8,750</strong> in the withholding formula ($17,500 for married couples filing jointly) is scheduled to <strong>sunset after taxable year 2026</strong> and revert to $3,000 for single filers and $6,000 for married couples. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 5 and 21.
+          </p>
+        </div>
+      </section>
+
+      {/* New Sourced Virginia Topic Sections */}
+      <section className="space-y-4">
+        <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-2">
+          <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+            Bonuses and Other Supplemental Pay
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            If a bonus or vacation pay is included with a regular wage payment, it is added to the gross wages for that pay period and withheld using the tables or formula. If a supplemental payment is made separately, the employer computes the tax on regular plus supplemental wages and subtracts the tax computed on regular wages alone; alternatively, if Virginia tax has already been withheld from the employee&apos;s regular wages, the employer may use a flat 5.75% rate without exemptions. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 19–20.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-2">
+          <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+            Working in Virginia While Living in Another State (Reciprocity)
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Virginia has reciprocity agreements with Kentucky, the District of Columbia, Maryland, West Virginia and Pennsylvania. Residents of Kentucky and the District of Columbia are not subject to Virginia withholding on wages if they commute daily to their place of employment in Virginia. Residents of Maryland, West Virginia and Pennsylvania are not subject to Virginia withholding if they maintain a legal domicile in their home state and live in Virginia less than 183 days of the taxable year (or do not live in Virginia at all), their only Virginia source income is wages or salaries, and that income is taxed by their state of residence. A qualifying employee indicates this on Form VA-4 filed with the employer. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 12.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-2">
+          <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+            Form VA-4 and Withholding When No Exemption Certificate Is Filed
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Form VA-4 is the Virginia Employee&apos;s Withholding Exemption Certificate, which an employee files to declare personal and age/blind exemptions. If an employee fails to file Form VA-4, the employer is required to withhold Virginia income tax as if the employee had claimed zero exemptions. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 13.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-2">
+          <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+            Exemption From Virginia Withholding
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            An employee may claim complete exemption from Virginia income tax withholding on Form VA-4 (line 3) if they meet one of the qualifying conditions: they incurred no Virginia tax liability last year and expect none this year; their expected Virginia adjusted gross income is below $11,950 (single), $23,900 (married), or $11,950 (married filing separately); they commute daily from Kentucky or DC; or they are legally domiciled in Maryland, Pennsylvania or West Virginia with only Virginia wages taxed by the home state. A new exemption certificate must be filed each year. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 14; Form VA-4 (Rev. 04/26), line 3 instructions.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-2">
+          <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+            Additional Extra Withholding
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            An employee may request that an additional dollar amount of Virginia income tax be withheld from each paycheck by entering into an agreement with the employer and specifying the amount on Form VA-4. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 14.
           </p>
         </div>
       </section>
@@ -180,10 +321,10 @@ export default function VirginiaPaycheckPage() {
       {/* Official VA Tax Brackets Table */}
       <section className="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
         <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-          Virginia Tax Brackets & Rates (formula effective for wages paid after July 1, 2025 (taxable year 2025 and after))
+          Virginia Tax Brackets &amp; Rates
         </h2>
         <p className="text-xs text-slate-500">
-          Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 21.
+          Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), page 21. Formula effective for wages paid after July 1, 2025 (taxable year 2025 and after).
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-xs text-left border-collapse">
@@ -215,7 +356,7 @@ export default function VirginiaPaycheckPage() {
       {/* Programmatic Worked Examples at $50k, $75k, $100k */}
       <section className="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
         <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-          Virginia Paycheck Examples: $50,000, $75,000 & $100,000
+          Virginia Paycheck Examples: $50,000, $75,000 &amp; $100,000
         </h2>
         <p className="text-xs text-slate-500">
           Computed dynamically using 1 personal exemption (Form VA-4), standard single W-4, and zero pre-tax deductions.
@@ -239,7 +380,7 @@ export default function VirginiaPaycheckPage() {
                   <span className="text-slate-800">-{formatCurrency(ex.biweekly.taxes.federalIncomeTax)}</span>
                 </div>
                 <div className="flex justify-between text-slate-600">
-                  <span>FICA (SS & Medicare):</span>
+                  <span>FICA (SS &amp; Medicare):</span>
                   <span className="text-slate-800">
                     -{formatCurrency(ex.biweekly.taxes.socialSecurity + ex.biweekly.taxes.medicare)}
                   </span>

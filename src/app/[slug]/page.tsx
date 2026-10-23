@@ -15,7 +15,8 @@ import {
   compute401kBreakdown,
   buildSalaryPageMetadata,
 } from "@/lib/salaryPageCalc";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { CONTACT_EMAIL, PAGE_UPDATE_INFO } from "@/lib/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import virginiaData from "@/data/states/virginia.json";
 import pennsylvaniaData from "@/data/states/pennsylvania.json";
 
@@ -130,8 +131,18 @@ export default async function SalaryAfterTaxPage(props: {
   // UC for annual PA row
   const paUcAnnual = isPA ? annual.taxes.statePayrollTaxes.find((t) => t.name.includes("Unemployment") || t.name.includes("UC"))?.amount ?? 0 : 0;
 
+  // Breadcrumbs
+  const breadcrumbs = [
+    { name: "Home", href: "/" },
+    { name: "Paycheck Calculators by State", href: "/paycheck-calculator-by-state" },
+    { name: stateName, href: `/${calculatorSlug}` },
+    { name: `$${salaryStr} Salary After Tax` },
+  ];
+
   return (
     <div className="space-y-8">
+      <Breadcrumbs items={breadcrumbs} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -140,7 +151,9 @@ export default async function SalaryAfterTaxPage(props: {
       {/* H1 */}
       <div>
         <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-1">
-          <span>Tax Year 2026</span>
+          <span>{PAGE_UPDATE_INFO.taxYearLabel}</span>
+          <span>•</span>
+          <span>{PAGE_UPDATE_INFO.updatedLabel}</span>
           <span>•</span>
           <span>{isVA ? "Form VA-4 & Employer Guide" : "PA REV-415 & L&I Guidelines"}</span>
         </div>
@@ -494,7 +507,7 @@ export default async function SalaryAfterTaxPage(props: {
           </div>
           {isPA && (
             <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-900">
-              <span className="font-semibold">Pennsylvania 401(k) note:</span> The 401(k) deduction reduces your federal taxable wages (and therefore federal withholding), but Pennsylvania includes the 401(k) deferral in gross compensation subject to the 3.07% PIT. Source: PA REV-415 (SU) 01-23, page 6, "Taxable Benefits."
+              <span className="font-semibold">Pennsylvania 401(k) note:</span> The 401(k) deduction reduces your federal taxable wages (and therefore federal withholding), but Pennsylvania includes the 401(k) deferral in gross compensation subject to the 3.07% PIT. Source: PA REV-415 (SU) 01-23, page 6, &quot;Taxable Benefits.&quot;
             </div>
           )}
         </div>
