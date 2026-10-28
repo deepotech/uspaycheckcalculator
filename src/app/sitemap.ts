@@ -21,6 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    { url: `${baseUrl}/hourly-to-salary-calculator`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/salary-to-hourly-calculator`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/hourly-paycheck-calculator`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/weekly-paycheck-calculator`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/bi-weekly-paycheck-calculator`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/monthly-paycheck-calculator`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/paycheck-basics`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     {
       url: `${baseUrl}/about`,
       lastModified,

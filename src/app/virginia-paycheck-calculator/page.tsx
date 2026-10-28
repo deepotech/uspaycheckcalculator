@@ -98,18 +98,6 @@ export default function VirginiaPaycheckPage() {
 
   const faqs = [
     {
-      q: "What is the difference between gross pay and net pay?",
-      a: "Gross pay is the total compensation earned before any taxes, payroll withholdings, or voluntary deductions are taken out. Net pay (take-home pay) is the remaining amount of compensation received by the employee after all federal, state, and local taxes, mandatory payroll contributions, and elective deductions have been subtracted.",
-    },
-    {
-      q: "What is pay frequency?",
-      a: "Pay frequency refers to the recurring schedule upon which an employer distributes wages to employees, such as weekly, bi-weekly, semi-monthly, or monthly.",
-    },
-    {
-      q: "What is the difference between bi-weekly and semi-monthly pay?",
-      a: "Bi-weekly pay occurs once every two weeks, resulting in 26 paychecks over a calendar year. Semi-monthly pay occurs twice per month (for example, on the 15th and the last day of the month), resulting in 24 paychecks per year.",
-    },
-    {
       q: "How is Virginia state income tax withheld from wages?",
       a: "Virginia withholding is calculated by annualizing your gross pay, subtracting the flat $8,750 standard deduction and your personal exemption allowances ($930 per personal exemption and $800 per age 65+ or blind exemption), and applying Virginia's graduated brackets (2%, 3%, 5%, and 5.75%). The annual tax is rounded to the nearest dollar and divided by your pay periods. Source: Virginia Tax, Income Tax Withholding Guide for Employers (2614086 Rev. 10/26), pages 21–22.",
     },
@@ -447,6 +435,24 @@ export default function VirginiaPaycheckPage() {
         </section>
       )}
 
+      {/* Payroll Basics Callout */}
+      <section className="bg-slate-50 rounded-xl border border-slate-200 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h2 className="text-base font-bold text-slate-900">
+            Looking for General Payroll Definitions?
+          </h2>
+          <p className="text-xs text-slate-600 mt-1">
+            Read our <Link href="/paycheck-basics" className="font-semibold text-emerald-700 underline hover:text-emerald-800">Paycheck Basics Guide</Link> for definitions of gross vs. net pay, pay frequency calculations, and 2026 FICA tax withholding rules.
+          </p>
+        </div>
+        <Link
+          href="/paycheck-basics"
+          className="whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition"
+        >
+          View Paycheck Basics &rarr;
+        </Link>
+      </section>
+
       {/* Sourced FAQ Section */}
       <section className="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
         <h2 className="text-xl font-bold text-slate-900 tracking-tight">
@@ -466,7 +472,7 @@ export default function VirginiaPaycheckPage() {
       <div className="p-4 rounded-lg bg-slate-100 border border-slate-200 text-xs text-slate-600 space-y-1">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
           <p className="font-semibold text-slate-800">
-            Tax Year: 2026 • Last Verified: {virginiaData.lastVerified}
+            Tax Year: 2026 • Last Verified: {virginiaData.lastVerified} • {PAGE_UPDATE_INFO.updatedLabel}
           </p>
           <a
             href={`mailto:${CONTACT_EMAIL}?subject=Virginia%20Calculator%20Error%20Report`}

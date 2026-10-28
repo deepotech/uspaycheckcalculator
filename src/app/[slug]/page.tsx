@@ -564,7 +564,7 @@ export default async function SalaryAfterTaxPage(props: {
       <div className="p-4 rounded-lg bg-slate-100 border border-slate-200 text-xs text-slate-600 space-y-1.5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
           <p className="font-semibold text-slate-800">
-            Tax Year: 2026 • Last Verified: {isVA ? virginiaData.lastVerified : pennsylvaniaData.lastVerified}
+            Tax Year: 2026 • Last Verified: {isVA ? virginiaData.lastVerified : pennsylvaniaData.lastVerified} • {PAGE_UPDATE_INFO.updatedLabel}
           </p>
           <a
             href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${stateName} $${salaryStr} Salary Page Error Report`)}`}

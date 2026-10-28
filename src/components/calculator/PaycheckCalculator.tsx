@@ -19,16 +19,28 @@ import { BreakdownTable } from "./BreakdownTable";
 interface PaycheckCalculatorProps {
   initialStateCode?: string;
   hideStateSelector?: boolean;
+  initialPayType?: PayType;
+  initialFrequency?: PayFrequency;
+  initialGrossAmount?: number;
 }
 
 export const PaycheckCalculator: React.FC<PaycheckCalculatorProps> = ({
   initialStateCode = "VA",
   hideStateSelector = false,
+  initialPayType = "salary",
+  initialFrequency = "bi-weekly",
+  initialGrossAmount,
 }) => {
-  const [grossAmount, setGrossAmount] = useState<number>(65000);
-  const [payType, setPayType] = useState<PayType>("salary");
+  const [payType, setPayType] = useState<PayType>(initialPayType);
+  const [grossAmount, setGrossAmount] = useState<number>(
+    initialGrossAmount !== undefined
+      ? initialGrossAmount
+      : initialPayType === "hourly"
+      ? 30
+      : 65000
+  );
   const [hoursPerWeek, setHoursPerWeek] = useState<number>(40);
-  const [frequency, setFrequency] = useState<PayFrequency>("bi-weekly");
+  const [frequency, setFrequency] = useState<PayFrequency>(initialFrequency);
   const [stateCode, setStateCode] = useState<string>(initialStateCode);
 
   const [w4, setW4] = useState<W4Inputs>({

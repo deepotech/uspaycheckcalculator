@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="border-t border-slate-200 bg-slate-50 text-slate-600 text-sm mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center text-white font-bold text-sm">
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
 
           <div>
             <h4 className="font-semibold text-slate-900 text-xs tracking-wider uppercase mb-3">
-              Tools
+              Calculators
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
@@ -49,6 +49,21 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
+            <h4 className="font-semibold text-slate-900 text-xs tracking-wider uppercase mb-3">
+              Periods &amp; Conversions
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><Link href="/hourly-paycheck-calculator" className="hover:text-emerald-600">Hourly Paycheck Calculator</Link></li>
+              <li><Link href="/weekly-paycheck-calculator" className="hover:text-emerald-600">Weekly Paycheck Calculator</Link></li>
+              <li><Link href="/bi-weekly-paycheck-calculator" className="hover:text-emerald-600">Bi-Weekly Paycheck Calculator</Link></li>
+              <li><Link href="/monthly-paycheck-calculator" className="hover:text-emerald-600">Monthly Paycheck Calculator</Link></li>
+              <li><Link href="/hourly-to-salary-calculator" className="hover:text-emerald-600">Hourly to Salary Calculator</Link></li>
+              <li><Link href="/salary-to-hourly-calculator" className="hover:text-emerald-600">Salary to Hourly Calculator</Link></li>
+              <li><Link href="/paycheck-basics" className="hover:text-emerald-600">Paycheck Basics Guide</Link></li>
+            </ul>
+          </div>
+
+                    <div>
             <h4 className="font-semibold text-slate-900 text-xs tracking-wider uppercase mb-3">
               Legal &amp; Disclaimers
             </h4>

@@ -96,18 +96,6 @@ export default function PennsylvaniaPaycheckPage() {
 
   const faqs = [
     {
-      q: "What is the difference between gross pay and net pay?",
-      a: "Gross pay is the total compensation earned before any taxes, payroll withholdings, or voluntary deductions are taken out. Net pay (take-home pay) is the remaining amount of compensation received by the employee after all federal, state, and local taxes, mandatory payroll contributions, and elective deductions have been subtracted.",
-    },
-    {
-      q: "What is pay frequency?",
-      a: "Pay frequency refers to the recurring schedule upon which an employer distributes wages to employees, such as weekly, bi-weekly, semi-monthly, or monthly.",
-    },
-    {
-      q: "What is the difference between bi-weekly and semi-monthly pay?",
-      a: "Bi-weekly pay occurs once every two weeks, resulting in 26 paychecks over a calendar year. Semi-monthly pay occurs twice per month (for example, on the 15th and the last day of the month), resulting in 24 paychecks per year.",
-    },
-    {
       q: "What is the Pennsylvania Personal Income Tax (PIT) withholding rate?",
       a: "Pennsylvania personal income tax is withheld at a flat rate of 3.07% on gross compensation. REV-415 describes withholding as compensation multiplied by 3.07% and does not mention a standard deduction or personal exemptions. Source: PA Department of Revenue Form REV-415 (SU) 01-23, page 11.",
     },
@@ -411,6 +399,24 @@ export default function PennsylvaniaPaycheckPage() {
         </section>
       )}
 
+      {/* Payroll Basics Callout */}
+      <section className="bg-slate-50 rounded-xl border border-slate-200 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h2 className="text-base font-bold text-slate-900">
+            Looking for General Payroll Definitions?
+          </h2>
+          <p className="text-xs text-slate-600 mt-1">
+            Read our <Link href="/paycheck-basics" className="font-semibold text-emerald-700 underline hover:text-emerald-800">Paycheck Basics Guide</Link> for definitions of gross vs. net pay, pay frequency calculations, and 2026 FICA tax withholding rules.
+          </p>
+        </div>
+        <Link
+          href="/paycheck-basics"
+          className="whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition"
+        >
+          View Paycheck Basics &rarr;
+        </Link>
+      </section>
+
       {/* Sourced FAQ Section */}
       <section className="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
         <h2 className="text-xl font-bold text-slate-900 tracking-tight">
@@ -430,7 +436,7 @@ export default function PennsylvaniaPaycheckPage() {
       <div className="p-4 rounded-lg bg-slate-100 border border-slate-200 text-xs text-slate-600 space-y-1">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
           <p className="font-semibold text-slate-800">
-            Tax Year: 2026 • Last Verified: {pennsylvaniaData.lastVerified}
+            Tax Year: 2026 • Last Verified: {pennsylvaniaData.lastVerified} • {PAGE_UPDATE_INFO.updatedLabel}
           </p>
           <a
             href={`mailto:${CONTACT_EMAIL}?subject=Pennsylvania%20Calculator%20Error%20Report`}

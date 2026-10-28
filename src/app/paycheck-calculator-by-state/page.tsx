@@ -115,7 +115,107 @@ export default function PaycheckCalculatorByStatePage() {
         </div>
       </section>
 
-      {/* Disclosures */}
+      {/* Pay Period & Conversion Calculators */}
+      <section className="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
+        <div>
+          <h2 className="text-xl font-bold text-slate-900 tracking-tight">
+            Pay Period &amp; Wage Conversion Calculators
+          </h2>
+          <p className="text-xs text-slate-500 mt-1">
+            Calculate take-home pay by payroll schedule or convert wages between hourly and annualized amounts.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
+          <Link
+            href="/hourly-to-salary-calculator"
+            className="p-4 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 hover:border-emerald-300 transition flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm">Hourly to Salary</h3>
+              <p className="text-slate-500 mt-1">
+                Convert hourly wages to annual, monthly, and bi-weekly gross pay using 2,080 standard hours.
+              </p>
+            </div>
+            <span className="text-emerald-700 font-semibold mt-3">Open Calculator &rarr;</span>
+          </Link>
+
+          <Link
+            href="/salary-to-hourly-calculator"
+            className="p-4 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 hover:border-emerald-300 transition flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm">Salary to Hourly</h3>
+              <p className="text-slate-500 mt-1">
+                Determine equivalent hourly wage rates from an annual fixed salary with custom hours and unpaid days.
+              </p>
+            </div>
+            <span className="text-emerald-700 font-semibold mt-3">Open Calculator &rarr;</span>
+          </Link>
+
+          <Link
+            href="/hourly-paycheck-calculator"
+            className="p-4 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 hover:border-emerald-300 transition flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm">Hourly Paycheck</h3>
+              <p className="text-slate-500 mt-1">
+                Calculate net take-home pay for hourly earnings with federal and state payroll deductions.
+              </p>
+            </div>
+            <span className="text-emerald-700 font-semibold mt-3">Open Calculator &rarr;</span>
+          </Link>
+
+          <Link
+            href="/weekly-paycheck-calculator"
+            className="p-4 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 hover:border-emerald-300 transition flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm">Weekly Paycheck</h3>
+              <p className="text-slate-500 mt-1">
+                Estimate take-home pay across 52 annual weekly pay periods using IRS Pub 15-T Worksheet 1A.
+              </p>
+            </div>
+            <span className="text-emerald-700 font-semibold mt-3">Open Calculator &rarr;</span>
+          </Link>
+
+          <Link
+            href="/bi-weekly-paycheck-calculator"
+            className="p-4 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 hover:border-emerald-300 transition flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm">Bi-Weekly Paycheck</h3>
+              <p className="text-slate-500 mt-1">
+                Calculate paycheck withholding across 26 bi-weekly periods (every two weeks).
+              </p>
+            </div>
+            <span className="text-emerald-700 font-semibold mt-3">Open Calculator &rarr;</span>
+          </Link>
+
+          <Link
+            href="/monthly-paycheck-calculator"
+            className="p-4 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 hover:border-emerald-300 transition flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm">Monthly Paycheck</h3>
+              <p className="text-slate-500 mt-1">
+                Estimate monthly take-home pay across 12 calendar periods using IRS Pub 15-T Worksheet 1A.
+              </p>
+            </div>
+            <span className="text-emerald-700 font-semibold mt-3">Open Calculator &rarr;</span>
+          </Link>
+        </div>
+
+        <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+          <span className="text-slate-500">Need a refresher on gross vs. net pay, pay frequencies, and FICA?</span>
+          <Link href="/paycheck-basics" className="font-semibold text-emerald-600 hover:text-emerald-700 hover:underline">
+            Read Paycheck Basics Guide &rarr;
+          </Link>
+        </div>
+      </section>
+
+
+            {/* Disclosures */}
       <div className="p-4 rounded-lg bg-slate-100 border border-slate-200 text-xs text-slate-600 space-y-1">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
           <p className="font-semibold text-slate-800">
