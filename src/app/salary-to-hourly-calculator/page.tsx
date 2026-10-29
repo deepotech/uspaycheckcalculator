@@ -87,7 +87,7 @@ export default function SalaryToHourlyPage() {
           Salary to Hourly Calculator
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-          Convert an annual fixed salary into its exact hourly wage rate, daily rate, weekly, bi-weekly, semi-monthly, and monthly gross earnings. Adjust weekly hours, annual working weeks, and unpaid time off to view precise compensation figures.
+          Convert an annual fixed salary into its equivalent hourly wage rate, daily rate, weekly, bi-weekly, semi-monthly, and monthly gross earnings. Adjust weekly hours, annual working weeks, and unpaid time off to view compensation figures.
         </p>
       </div>
 

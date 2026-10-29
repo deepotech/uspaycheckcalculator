@@ -92,7 +92,7 @@ export default function WeeklyPaycheckPage() {
     },
     {
       q: "Can I estimate weekly state tax withholding for Virginia and Pennsylvania?",
-      a: "Yes. Use the state selector to calculate exact state withholding. For Virginia, the calculator applies the annual formula divided by 52 weeks. For Pennsylvania, it applies the flat 3.07% PIT rate and 0.07% employee UC to each weekly paycheck.",
+      a: "Yes. Use the state selector to estimate state withholding. For Virginia, the calculator applies the annual formula divided by 52 weeks. For Pennsylvania, it applies the flat 3.07% PIT rate and 0.07% employee UC to each weekly paycheck.",
     },
   ];
 
@@ -131,7 +131,7 @@ export default function WeeklyPaycheckPage() {
           Weekly Paycheck Calculator (2026)
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-          Calculate your weekly take-home pay across 52 annual payroll periods. Uses official 2026 IRS Publication 15-T Worksheet 1A annual percentage method tables, statutory FICA tax caps, and state formulas.
+          Calculate your weekly take-home pay across 52 annual payroll periods. Based on 2026 IRS Publication 15-T Worksheet 1A annual percentage method tables, statutory FICA tax caps, and state formulas.
         </p>
       </div>
 

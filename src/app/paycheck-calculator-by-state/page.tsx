@@ -66,7 +66,7 @@ export default function PaycheckCalculatorByStatePage() {
             Active State Calculators
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Currently verified states with official withholding formulas:
+            State paycheck calculators with state withholding formulas:
           </p>
         </div>
 

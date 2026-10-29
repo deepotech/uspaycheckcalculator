@@ -255,6 +255,51 @@ describe("Phase A: Pay Conversion Arithmetic", () => {
     expect(paHourly.taxes.stateIncomeTax + paUc).toBe(62.80);
     expect(paHourly.netPay).toBe(1628.05);
   });
+
+  it("ensures hourly worked example in page TSX source renders exact engine output (-$83.69 VA, $1,607.16 net)", () => {
+    const hourlyPageContent = fs.readFileSync(
+      path.join(process.cwd(), "src/app/hourly-paycheck-calculator/page.tsx"),
+      "utf8"
+    );
+    // Verifies that hourly page is wired to calculatePaycheck dynamically
+    expect(hourlyPageContent).toContain("calculatePaycheck({");
+    expect(hourlyPageContent).toContain("stateCode: \"VA\"");
+    expect(hourlyPageContent).toContain("stateCode: \"PA\"");
+
+    // Run engine directly for hourly $25
+    const vaHourly = calculatePaycheck({
+      payType: "hourly",
+      grossAmount: 25,
+      hoursPerWeek: 40,
+      frequency: "bi-weekly",
+      stateCode: "VA",
+      w4: { filingStatus: "single", step2MultipleJobs: false, step3DependentsCredit: 0, step4aOtherIncome: 0, step4bDeductions: 0, step4cExtraWithholding: 0 },
+      preTax: {},
+      stateInputs: { vaPersonalExemptions: 1, vaAgeBlindExemptions: 0 },
+    });
+    // Annualized calculation: 52,000 - 8,750 - 930 = 42,320 taxable.
+    // Annual tax: 720 + (42,320 - 17,000)*0.0575 = 2,175.9 -> 2,176.
+    // Bi-weekly tax = 2,176 / 26 = 83.6923 -> 83.69
+    expect(vaHourly.taxes.stateIncomeTax).toBe(83.69);
+    expect(vaHourly.netPay).toBe(1607.16);
+
+    // Verify PA
+    const paHourly = calculatePaycheck({
+      payType: "hourly",
+      grossAmount: 25,
+      hoursPerWeek: 40,
+      frequency: "bi-weekly",
+      stateCode: "PA",
+      w4: { filingStatus: "single", step2MultipleJobs: false, step3DependentsCredit: 0, step4aOtherIncome: 0, step4bDeductions: 0, step4cExtraWithholding: 0 },
+      preTax: {},
+      stateInputs: { paLocalEitRate: 0.0 },
+    });
+    expect(paHourly.taxes.stateIncomeTax).toBe(61.40);
+    const paUc = paHourly.taxes.statePayrollTaxes.reduce((s, i) => s + i.amount, 0);
+    expect(paUc).toBe(1.40);
+    expect(paHourly.taxes.stateIncomeTax + paUc).toBe(62.80);
+    expect(paHourly.netPay).toBe(1628.05);
+  });
 });
 
 // ── 2. Unique Titles & Descriptions Across ALL Pages ─────────────────────────

@@ -87,11 +87,11 @@ export default function HourlyPaycheckPage() {
     },
     {
       q: "What mandatory payroll deductions apply to hourly wages?",
-      a: "All covered hourly wages are subject to federal payroll taxes: Social Security tax of 6.2% up to the 2026 wage base limit of $184,500, Medicare tax of 1.45% with no annual limit, federal income tax withholding calculated via IRS Publication 15-T Worksheet 1A annual percentage method tables, and any applicable state or local income taxes.",
+      a: "All covered hourly wages are subject to federal payroll taxes: Social Security tax of 6.2% up to the 2026 wage base limit of $184,500, Medicare tax of 1.45% with no annual limit, federal income tax withholding calculated via IRS Publication 15-T Worksheet 1A (annualize wages, subtract line 1g, apply the Annual Percentage Method Table, and divide by pay periods), and any applicable state or local income taxes.",
     },
     {
       q: "Can I use this calculator for both federal-only and state-specific hourly withholding?",
-      a: "Yes. By default, the calculator estimates federal withholding and FICA deductions. You can select an active, verified state (such as Virginia or Pennsylvania) from the state selector to calculate exact state withholding and local taxes.",
+      a: "Yes. By default, the calculator estimates federal withholding and FICA deductions. You can select an active state (such as Virginia or Pennsylvania) from the state selector to estimate state withholding.",
     },
     {
       q: "What happens to Social Security tax if hourly earnings exceed $184,500?",
@@ -134,7 +134,7 @@ export default function HourlyPaycheckPage() {
           Hourly Paycheck Calculator (2026)
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-          Estimate your net take-home pay from hourly earnings. Calculates federal income tax withholding using 2026 IRS Publication 15-T Worksheet 1A annual percentage method tables, statutory Social Security and Medicare taxes, and state withholding for verified states.
+          Estimate your net take-home pay from hourly earnings. Calculates federal income tax withholding using 2026 IRS Publication 15-T Worksheet 1A annual percentage method tables, statutory Social Security and Medicare taxes, and state withholding for supported states.
         </p>
       </div>
 

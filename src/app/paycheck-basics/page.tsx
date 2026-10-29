@@ -7,14 +7,14 @@ import { PAGE_UPDATE_INFO, CONTACT_EMAIL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Paycheck Basics Guide: Gross vs Net Pay, Pay Frequency & FICA",
   description:
-    "Understand how US paychecks work: definitions of gross vs net pay, payroll frequencies (bi-weekly vs semi-monthly), and official 2026 FICA tax rates.",
+    "Understand how US paychecks work: definitions of gross vs net pay, payroll frequencies (bi-weekly vs semi-monthly), and 2026 statutory FICA tax rates.",
   alternates: {
     canonical: "/paycheck-basics",
   },
   openGraph: {
     title: "Paycheck Basics Guide: Gross vs Net Pay, Pay Frequency & FICA",
     description:
-      "Understand how US paychecks work: definitions of gross vs net pay, payroll frequencies (bi-weekly vs semi-monthly), and official 2026 FICA tax rates.",
+      "Understand how US paychecks work: definitions of gross vs net pay, payroll frequencies (bi-weekly vs semi-monthly), and 2026 statutory FICA tax rates.",
     url: "/paycheck-basics",
     type: "website",
   },
@@ -85,7 +85,7 @@ export default function PaycheckBasicsPage() {
           Paycheck Basics: Gross vs. Net Pay, Pay Schedules &amp; FICA Taxes
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-          A clear, factual overview of core payroll concepts: understanding gross versus net compensation, the mathematical structure of recurring pay schedules, and official statutory FICA withholding rates.
+          A clear, factual overview of core payroll concepts: understanding gross versus net compensation, the mathematical structure of recurring pay schedules, and statutory FICA withholding rates.
         </p>
       </div>
 
@@ -205,8 +205,8 @@ export default function PaycheckBasicsPage() {
                 </tr>
                 <tr>
                   <td className="py-2 px-3 font-semibold text-slate-900">Three-Paycheck Months</td>
-                  <td className="py-2 px-3">2 months per year contain 3 paychecks</td>
-                  <td className="py-2 px-3">0 months (always exactly 2 paychecks/mo)</td>
+                  <td className="py-2 px-3">Typically 2 months per year contain 3 paychecks (and 10 months contain 2 paychecks)</td>
+                  <td className="py-2 px-3">0 months (always 2 paychecks/mo)</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 font-semibold text-slate-900">Gross at $60,000 Salary</td>
@@ -268,7 +268,7 @@ export default function PaycheckBasicsPage() {
           Try Our Paycheck &amp; Conversion Calculators
         </h2>
         <p className="text-xs text-slate-600">
-          Calculate your exact take-home pay using verified federal and state withholding models:
+          Estimate your take-home pay using federal and state withholding models:
         </p>
         <div className="flex flex-wrap gap-2 text-xs">
           <Link

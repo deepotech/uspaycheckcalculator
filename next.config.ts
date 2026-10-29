@@ -12,10 +12,6 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  experimental: {
-    cpus: 1,
-    turbopackPluginRuntimeStrategy: "forceWorkerThreads",
-  },
 };
 
 export default nextConfig;

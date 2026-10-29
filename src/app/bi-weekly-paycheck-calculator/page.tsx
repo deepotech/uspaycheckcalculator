@@ -80,7 +80,7 @@ export default function BiWeeklyPaycheckPage() {
     },
     {
       q: "What is the difference between bi-weekly pay and semi-monthly pay?",
-      a: "Bi-weekly pay occurs 26 times per year (every two weeks), meaning two months per year will contain three paychecks. Semi-monthly pay occurs exactly 24 times per year (twice per month, such as the 15th and final day of each month). Gross pay per period is higher on a semi-monthly schedule (Salary ÷ 24) than on a bi-weekly schedule (Salary ÷ 26).",
+      a: "Bi-weekly pay occurs 26 times per year (every two weeks), meaning two months per year typically contain three paychecks (and ten months typically contain two paychecks). Semi-monthly pay occurs exactly 24 times per year (twice per month, such as the 15th and final day of each month). Gross pay per period is higher on a semi-monthly schedule (Salary ÷ 24) than on a bi-weekly schedule (Salary ÷ 26).",
     },
     {
       q: "How is gross pay calculated on a bi-weekly paycheck?",
@@ -88,7 +88,7 @@ export default function BiWeeklyPaycheckPage() {
     },
     {
       q: "What federal deductions are subtracted from each bi-weekly check?",
-      a: "Federal deductions consist of federal income tax withholding computed using IRS Publication 15-T bi-weekly percentage tables, Social Security tax (6.2% on cumulative wages up to $184,500), and Medicare tax (1.45% on all wages).",
+      a: "Federal deductions consist of federal income tax withholding computed using IRS Publication 15-T Worksheet 1A (annualize wages, subtract line 1g, apply the Annual Percentage Method Table, and divide by 26 pay periods), Social Security tax (6.2% on cumulative wages up to $184,500), and Medicare tax (1.45% on all wages).",
     },
     {
       q: "How does the Social Security cap affect bi-weekly paychecks late in the year?",
@@ -131,7 +131,7 @@ export default function BiWeeklyPaycheckPage() {
           Bi-Weekly Paycheck Calculator (2026)
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-          Estimate take-home pay for bi-weekly paychecks received every two weeks (26 pay periods per year). Incorporates official 2026 IRS Publication 15-T percentage withholding brackets, statutory FICA limits, and state tax calculations.
+          Estimate take-home pay for bi-weekly paychecks received every two weeks (26 pay periods per year). Based on 2026 IRS Publication 15-T Worksheet 1A formulas, statutory FICA limits, and state tax calculations.
         </p>
       </div>
 

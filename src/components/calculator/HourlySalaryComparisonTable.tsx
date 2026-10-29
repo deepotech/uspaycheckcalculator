@@ -16,7 +16,7 @@ export const HourlySalaryComparisonTable: React.FC = () => {
           Hourly to Annual Salary &amp; Take-Home Pay Table ($15 to $50/hr)
         </h2>
         <p className="text-xs text-slate-500 mt-1">
-          Based on 2,080 working hours per year (40 hours per week × 52 weeks). Take-home pay estimates use tax year 2026 federal tables (IRS Publication 15-T, Single filer, standard Form W-4) and verified state tax formulas for Virginia and Pennsylvania.
+          Based on 2,080 working hours per year (40 hours per week × 52 weeks). Take-home pay estimates use tax year 2026 federal tables (IRS Publication 15-T, Single filer, standard Form W-4) and state tax formulas for Virginia and Pennsylvania.
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export const HourlySalaryComparisonTable: React.FC = () => {
         <div>
           <h3 className="font-bold text-slate-900 mb-1">State Paycheck Calculators</h3>
           <p className="text-slate-500 mb-2">
-            Calculate exact deductions including custom pre-tax benefits, local taxes, and state withholding certificates:
+            Estimate paycheck deductions including custom pre-tax benefits, local taxes, and state withholding certificates:
           </p>
           <div className="flex flex-wrap gap-2">
             <Link

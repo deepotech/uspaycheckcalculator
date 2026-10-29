@@ -76,7 +76,7 @@ export default function AboutPage() {
           <div className="border-l-2 border-emerald-600 pl-4 space-y-1">
             <h3 className="font-bold text-slate-900">2. Social Security &amp; Medicare (FICA)</h3>
             <p className="text-slate-600 leading-relaxed">
-              <strong>Social Security Administration, Contribution and Benefit Base (<a href="https://www.ssa.gov/oact/cola/cbb.html" target="_blank" rel="noopener noreferrer" className="text-emerald-700 underline hover:text-emerald-800">ssa.gov/oact/cola/cbb.html</a>):</strong> 2026 Social Security (OASDI) maximum taxable earnings limit of $184,500 at the statutory 6.2% employee tax rate. Medicare Hospital Insurance (HI) is computed at 1.45% on all earnings with no wage limit, plus 0.9% Additional Medicare Tax on wages exceeding statutory thresholds ($200,000 for single, $250,000 for married filing jointly) per 26 U.S.C. § 3101.
+              <strong>Social Security Administration, Contribution and Benefit Base (<a href="https://www.ssa.gov/oact/cola/cbb.html" target="_blank" rel="noopener noreferrer" className="text-emerald-700 underline hover:text-emerald-800">ssa.gov/oact/cola/cbb.html</a>):</strong> 2026 Social Security (OASDI) maximum taxable earnings limit of $184,500 at the statutory 6.2% employee tax rate. Medicare Hospital Insurance (HI) is computed at 1.45% on all earnings with no wage limit.
             </p>
           </div>
 

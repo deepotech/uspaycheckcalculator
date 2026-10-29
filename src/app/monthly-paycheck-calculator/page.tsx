@@ -76,7 +76,7 @@ export default function MonthlyPaycheckPage() {
   const faqs = [
     {
       q: "How many pay periods occur under a monthly payroll schedule?",
-      a: "A monthly pay schedule consists of exactly 12 pay periods per year, with compensation distributed once per calendar month (usually on the last working day of the month or a designated calendar date).",
+      a: "A monthly pay schedule consists of exactly 12 pay periods per year, with compensation distributed once per calendar month.",
     },
     {
       q: "How do you calculate monthly gross earnings from an annual salary?",
@@ -88,7 +88,7 @@ export default function MonthlyPaycheckPage() {
     },
     {
       q: "Why do monthly paychecks show higher tax withholding than bi-weekly checks?",
-      a: "Because a monthly paycheck covers an entire calendar month (approximately 4.33 weeks), the gross dollar amount is more than double a bi-weekly check (2 weeks). IRS Publication 15-T Worksheet 1A annualizes monthly gross, applies the annual percentage method table, and divides by 12 periods, so the withholding amounts are proportional to the larger gross payment.",
+      a: "Each monthly paycheck shows higher dollar withholding simply because each check covers an entire month (approximately 4.33 weeks of pay) rather than two weeks, resulting in a larger gross payment per check ($5,000.00 vs. $2,307.69 for a $60k salary). However, total annual tax liability remains virtually identical under IRS Publication 15-T Worksheet 1A, because both schedules annualize pay to compute annual tax before dividing by the respective number of pay periods (12 monthly vs. 26 bi-weekly).",
     },
     {
       q: "How does IRS Publication 15-T calculate monthly federal withholding?",
@@ -131,7 +131,7 @@ export default function MonthlyPaycheckPage() {
           Monthly Paycheck Calculator (2026)
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-          Estimate take-home pay for monthly salaries across 12 annual calendar pay periods. Features official 2026 IRS Publication 15-T Worksheet 1A annual percentage withholding tables, statutory FICA caps, and state tax calculations.
+          Estimate take-home pay for monthly salaries across 12 annual calendar pay periods. Based on 2026 IRS Publication 15-T Worksheet 1A annual percentage withholding formulas, statutory FICA caps, and state tax calculations.
         </p>
       </div>
 
